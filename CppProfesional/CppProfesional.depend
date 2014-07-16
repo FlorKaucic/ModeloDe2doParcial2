@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1405498429 source:d:\documents\facultad\renata\github\modelode2doparcial2\cppprofesional\main.cpp
+	"Profesional.h"
+	<iostream>
+
+1405498728 d:\documents\facultad\renata\github\modelode2doparcial2\cppprofesional\include\profesional.h
+	<iostream>
+
