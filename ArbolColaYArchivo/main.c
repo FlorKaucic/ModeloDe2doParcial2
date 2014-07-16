@@ -43,7 +43,7 @@ int cargarEnCola(t_cola *, int, t_info *);
 int abrirArchivo(FILE **, const char *, const char *, const int);
 void hardcodearDatosArchivo(FILE **);
 void mostrarArchivo(FILE **);
-int actualizarArchivo(FILE **, t_cola *);
+void actualizarArchivo(FILE **, t_cola *);
 
 int main()
 {
@@ -190,7 +190,7 @@ int cargarEnCola(t_cola * p, int cla, t_info * dat)
 
 int sacarDeCola(t_cola * p)
 {
-    cola_t_nodo * aux = (cola_t_nodo *)malloc(sizeof(cola_t_nodo));
+    cola_t_nodo * aux;
     if(!*p)
         return 0;
     aux = (*p)->sig;
@@ -255,12 +255,12 @@ void mostrarArchivo(FILE **pf)
     }
 }
 
-int actualizarArchivo(FILE **pf, t_cola * pc)
+void actualizarArchivo(FILE **pf, t_cola * pc)
 {
     int cmp;
     t_reg reg;
     if(!*pc)
-        return 0;
+        return;
     rewind(*pf);
     fread(&reg, sizeof(reg), 1, *pf);
     while(*pc&&!feof(*pf))
@@ -278,5 +278,4 @@ int actualizarArchivo(FILE **pf, t_cola * pc)
         }
         sacarDeCola(pc);
     }
-    return 1;
 }
